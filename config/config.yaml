@@ -1,0 +1,37 @@
+# Smart Screen Stand Configuration
+
+camera:
+  type: "rgb"           # rgb or rgbd
+  width: 640
+  height: 480
+  fps: 30
+  # Camera intrinsics
+  fx: 616.0
+  fy: 616.0
+  cx: 320.0
+  cy: 240.0
+
+face_detection:
+  min_detection_confidence: 0.5
+  min_tracking_confidence: 0.5
+  max_faces: 1
+
+screen:
+  target_distance: 0.55   # meters, eye-to-screen
+  # Camera-to-base transform (calibrate per installation)
+  camera_to_base:
+    translation: [0.0, 0.25, 0.40]
+    rotation_euler: [0, 0, 0]
+
+arm:
+  type: "piper"           # piper
+  max_speed: 0.3          # m/s
+  smoothing_alpha: 0.3    # low-pass filter
+  home_position: [0.0, 0.2, 0.3, 0, 0, 0]
+
+safety:
+  emergency_stop_key: "q"
+  workspace_limits:
+    x: [-0.5, 0.5]
+    y: [0.0, 0.6]
+    z: [0.0, 0.6]
